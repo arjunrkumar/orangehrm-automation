@@ -22,8 +22,8 @@ test.describe('PIM - Add and find employee', () => {
     await pimPage.clickAddEmployee();
     await addEmployeePage.fillDetails({ firstName, lastName });
     await addEmployeePage.save();
-    await expect(page).toHaveURL(/\/pim\/viewPersonalDetails\/empNumber\/\d+/, { timeout: 10000 });
-    await expect(page.getByRole('heading', { name: fullName })).toBeVisible({timeout: 30000}); //Demo can be slow to render the profile page after save — generous timeout to avoid flaky failures
+    await expect(page).toHaveURL(/\/pim\/viewPersonalDetails\/empNumber\/\d+/);
+    await expect(page.getByRole('heading', { name: fullName })).toBeVisible();
 
     await pimPage.goto();
     await pimPage.searchByName(fullName);
