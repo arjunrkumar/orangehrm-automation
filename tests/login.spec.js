@@ -23,5 +23,5 @@ test('shows error with invalid credentials', async () => {
 test('shows validation for empty fields', async () => {
     await loginPage.login('', '');
     const requiredFields = await loginPage.page.locator('.oxd-input-group__message');
-    await expect(requiredFields).toHaveCount(2, { timeout: 5000 });
+    await expect(requiredFields).toHaveCount(2);
 });
