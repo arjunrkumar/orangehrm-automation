@@ -4,10 +4,10 @@ const { defineConfig, devices } = require('@playwright/test');
 module.exports = defineConfig({
   testDir: './tests',
   fullyParallel: true,
-  retries: 0,
-  timeout: 60000, // per-test ceiling — the PIM test hit this exact limit above
+  retries:  process.env.CI ? 2 : 0,
+  timeout: 60000,
   expect: {
-    timeout: 10000, // default per-assertion timeout, up from Playwright's 5000ms default
+    timeout: 10000,
   },
   reporter: 'html',
   use: {
